@@ -1,73 +1,52 @@
-# React + TypeScript + Vite
+# 🎮 GuessPokemon
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**GuessPokemon** is a fun web game inspired by *Wordle*, but for Pokémon fans!  
+Each day (or round), players try to guess the hidden Pokémon. After every incorrect guess, a new hint appears — like the Pokémon’s **type**, **generation**, **color**, or **habitat** — until you guess it right or run out of tries.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌟 Concept
 
-## React Compiler
+- 🧩 **Core Idea:** Guess the Pokémon name within a limited number of attempts.  
+- 💡 **Hints:** Each failed attempt reveals an extra clue — e.g., type, generation, or partial sprite.  
+- 🧠 **Two Modes:**
+  - **Guest Mode:** No login, local progress saved in browser.
+  - **Account Mode:** Login to save stats and streaks in the cloud (Firebase).
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- 🔁 **Future Expansion Ideas:**
+  - Daily Pokémon challenge shared by everyone.
+  - Leaderboards and player stats.
+  - “Endless mode” to keep playing random Pokémon.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🧱 Tech Stack
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+| Layer | Technology | Purpose |
+|-------|-------------|----------|
+| **Frontend** | React + Vite (TypeScript) | Fast, modern web app setup |
+| **Styling** | Tailwind CSS | Responsive, minimal UI styling |
+| **Data Layer** | Apollo Client (GraphQL) | Easy data queries (mock → API) |
+| **Mock API (offline)** | Local GraphQL schema | Playable without network |
+| **Backend (later)** | Firebase Auth + Firestore | User accounts and progress storage |
+| **Pokémon Data Source** | [PokéAPI GraphQL](https://graphql-pokeapi.vercel.app/) | Public Pokémon data API |
+| **Hosting** | Vercel | Free static site deployment |
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 🚀 Getting Started (Development)
+
+### 1. Clone the repo
+```bash
+git clone
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 3. Install dependencies
+```bash
+cd GuessPokemon
+npm install
 ```
+
+### 4. Start the development server
+```bash
+npm run dev
