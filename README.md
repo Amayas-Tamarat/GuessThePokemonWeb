@@ -24,29 +24,30 @@ Each day (or round), players try to guess the hidden Pokémon. After every incor
 
 | Layer | Technology | Purpose |
 |-------|-------------|----------|
-| **Frontend** | React + Vite (TypeScript) | Fast, modern web app setup |
-| **Styling** | Tailwind CSS | Responsive, minimal UI styling |
-| **Data Layer** | Apollo Client (GraphQL) | Easy data queries (mock → API) |
-| **Mock API (offline)** | Local GraphQL schema | Playable without network |
-| **Backend (later)** | Firebase Auth + Firestore | User accounts and progress storage |
+| **Frontend** | React + Vite (TypeScript)
+| **Styling** | Tailwind CSS
+| **Mock API (offline)** | Local GraphQL schema
+| **Backend (later)** | Firebase Auth + Firestore | User accounts and progress storage 
 | **Pokémon Data Source** | [PokéAPI GraphQL](https://graphql-pokeapi.vercel.app/) | Public Pokémon data API |
-| **Hosting** | Vercel | Free static site deployment |
-
+| **Hosting** | Vercel 
 ---
 
 ## 🚀 Getting Started (Development)
 
 ### 1. Clone the repo
+
 ```bash
 git clone
 ```
 
 ### 3. Install dependencies
+
 ```bash
 cd GuessPokemon
 npm install
 ```
 
 ### 4. Start the development server
+
 ```bash
 npm run dev
