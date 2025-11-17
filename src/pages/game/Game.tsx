@@ -1,4 +1,9 @@
+import { useGame } from "../../hook/useGame";
+
 export default function Game() {
+
+    const { currentPokemon } = useGame();
+    console.log(currentPokemon);
 
   return (
     <div className="flex flex-col items-center justify-start w-full max-w-md mx-auto px-6 py-10 text-gray-900 font-sans text-center">
