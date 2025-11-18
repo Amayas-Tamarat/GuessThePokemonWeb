@@ -10,5 +10,14 @@ export function useGame() {
     setCurrentPokemon(pokemonMock[random]);
   }, []);
 
-  return { currentPokemon };
+
+  function searchPokemon(query: string) {
+    if (!query) return [];
+    const normalizedQuery = query.toLowerCase();
+    return pokemonMock.filter(p => p.name.toLowerCase().includes(normalizedQuery)).slice(0, 10)
+  
+  }
+
+  return { currentPokemon, searchPokemon };
 }
+
