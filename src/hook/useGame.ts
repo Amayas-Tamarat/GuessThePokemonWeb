@@ -4,6 +4,7 @@ import type { Pokemon } from "../data/PokemonMock";
 
 export function useGame() {
   const [currentPokemon, setCurrentPokemon] = useState<Pokemon | null>(null);
+  const [attempts, setAttempts] = useState(0);
 
   useEffect(() => {
     const random = Math.floor(Math.random() * pokemonMock.length);
@@ -18,6 +19,19 @@ export function useGame() {
   
   }
 
-  return { currentPokemon, searchPokemon };
+  function checkAnswer(name: string) {
+    if (!currentPokemon) return false;
+
+    const normalizedGuess = name.trim().toLowerCase();
+    const normalizedCorrect = currentPokemon.name.toLowerCase();
+
+    const isCorrect = normalizedGuess === normalizedCorrect;
+
+    setAttempts(prev => prev + 1);
+
+    return isCorrect;
+  }
+
+  return { currentPokemon, searchPokemon, checkAnswer, attempts };
 }
 

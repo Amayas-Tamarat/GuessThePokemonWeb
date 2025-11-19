@@ -3,7 +3,7 @@ import { useGame } from "../../hook/useGame";
 import type { Pokemon } from "../../data/PokemonMock";
 
 export default function Game() {
-  const { currentPokemon, searchPokemon } = useGame();
+  const { currentPokemon, searchPokemon, checkAnswer, attempts } = useGame();
   console.log(currentPokemon)
 
   const [query, setQuery] = useState("");
@@ -21,6 +21,16 @@ export default function Game() {
     setQuery(name);
     setResults([]);
   }
+
+  function handleGuess() {
+  const result = checkAnswer(query);
+
+  if (result) {
+    alert("🎉 Correct!");
+  } else {
+    alert("❌ Wrong guess!");
+  }
+}
 
   return (
     <div className="flex flex-col items-center justify-start w-full max-w-md mx-auto px-6 py-10 text-gray-900 font-sans text-center">
@@ -54,14 +64,14 @@ export default function Game() {
       </div>
 
       <button
-        onClick={() => alert("Guess submitted!")}
+        onClick={handleGuess}
         className="mt-3 bg-blue-500 hover:bg-blue-600 text-white font-semibold px-5 py-2 rounded-md shadow-sm transition"
       >
         Guess
       </button>
 
       <div className="mt-6 text-gray-600 text-sm">
-        Attempts: <span className="font-semibold text-gray-800">0</span>
+        Attempts: <span className="font-semibold text-gray-800">{attempts}</span>
       </div>
     </div>
   );
